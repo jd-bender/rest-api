@@ -13,6 +13,8 @@ app.use((req, res, next) => {
    console.log('middleware works');
    fs.appendFile('server.log', "ooga booga");
    next();
+}, (error) => {
+    console.log('something went wrong');
 });
 
 app.use(express.static(__dirname + "/public"));
