@@ -1,6 +1,5 @@
 const express = require('express');
 const hbs = require('hbs');
-const fs = require('fs');
 
 const port = process.env.PORT || 3000;
 
@@ -11,11 +10,6 @@ app.set("view engine", "hbs");
 
 app.use((req, res, next) => {
    console.log('middleware works');
-   fs.appendFile('server.log', "ooga booga", (error) => {
-       if (error) {
-           console.log('something has gone wrong');
-       }
-   });
    next();
 });
 
