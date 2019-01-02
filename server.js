@@ -11,10 +11,12 @@ app.set("view engine", "hbs");
 
 app.use((req, res, next) => {
    console.log('middleware works');
-   //fs.appendFile('server.log', "ooga booga");
+   fs.appendFile('server.log', "ooga booga", (error) => {
+       if (error) {
+           console.log('something has gone wrong');
+       }
+   });
    next();
-}, (error) => {
-    console.log('something went wrong');
 });
 
 app.use(express.static(__dirname + "/public"));
