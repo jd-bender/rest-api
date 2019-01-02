@@ -11,7 +11,7 @@ app.set("view engine", "hbs");
 
 app.use((req, res, next) => {
    console.log('middleware works');
-   //fs.appendFile('server.log', "ooga booga");
+   fs.appendFile('server.log', "ooga booga");
    next();
 });
 
